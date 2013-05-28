@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--  Tomcat 7.0 -->
+<web-app>
+    <listener>
+        <listener-class>
+                com.sun.xml.ws.transport.http.servlet.WSServletContextListener
+        </listener-class>
+    </listener>
+    <servlet>
+        <servlet-name>test</servlet-name>
+        <servlet-class>
+        	com.sun.xml.ws.transport.http.servlet.WSServlet
+        </servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>test</servlet-name>
+        <url-pattern>/test</url-pattern>
+    </servlet-mapping>
+    <session-config>
+        <session-timeout>120</session-timeout>
+    </session-config>
+ </web-app>
+
+<!-- JBoss AS 7 
+
+<web-app>
+       <servlet>
+        <servlet-name>test</servlet-name>
+        <servlet-class>
+        	com.msgidtest.main.MsgIDTestImpl
+        </servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>test</servlet-name>
+        <url-pattern>/test</url-pattern>
+    </servlet-mapping>
+    <session-config>
+        <session-timeout>120</session-timeout>
+    </session-config>
+</web-app>
+ -->

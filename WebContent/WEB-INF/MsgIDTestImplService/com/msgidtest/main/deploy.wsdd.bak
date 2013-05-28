@@ -1,0 +1,28 @@
+<!-- Use this file to deploy some handlers/chains and services      -->
+<!-- Two ways to do this:                                           -->
+<!--   java org.apache.axis.client.AdminClient deploy.wsdd          -->
+<!--      after the axis server is running                          -->
+<!-- or                                                             -->
+<!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   -->
+<!--      from the same directory that the Axis engine runs         -->
+
+<deployment
+    xmlns="http://xml.apache.org/axis/wsdd/"
+    xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from MsgIDTestImplService WSDL service -->
+
+  <service name="MsgIDTestImpl" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://main.msgidtest.com"/>
+      <parameter name="wsdlServiceElement" value="MsgIDTestImplService"/>
+      <parameter name="schemaQualified" value="http://main.msgidtest.com"/>
+      <parameter name="wsdlServicePort" value="MsgIDTestImpl"/>
+      <parameter name="className" value="com.msgidtest.main.MsgIDTestImplSoapBindingImpl"/>
+      <parameter name="wsdlPortType" value="MsgIDTestImpl"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <operation name="getMessage" qname="operNS:getMessage" xmlns:operNS="http://main.msgidtest.com" returnQName="retNS:getMessageReturn" xmlns:retNS="http://main.msgidtest.com" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+      </operation>
+      <parameter name="allowedMethods" value="getMessage"/>
+
+  </service>
+</deployment>
